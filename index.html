@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+
+        <title>Connect 4</title>
+    </head>
+
+    <body> 
+        <div class="container">
+            <button type="button" id="settings"><i class="fa fa-gear"></i></button>
+            <p id="whoseturn">Blacks's turn</p>
+            <button type="button" id="replay" onclick=PlayAgain()>Play Again</button>
+
+            <table id="board">
+                <tbody id="boardtbody">
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
