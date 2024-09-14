@@ -5,6 +5,8 @@ let TurnNum = 0
 let Turn = "B";
 let Win = false;
 
+let winsound = new Audio("Assets/Party_Horn.mp3");
+
 // Create chip slots
 for (let i=0; i<ySize; i++) {
     let tr = document.createElement("tr");
@@ -162,6 +164,8 @@ function PlaceChip(xpos, ypos) {
             document.getElementById("replay").style.display = " block";
 
             const end = Date.now() + 5 * 1000;
+
+            winsound.play();
 
             (function frame() {
             confetti({
