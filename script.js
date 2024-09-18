@@ -2,7 +2,7 @@ const xSize = 7, ySize = 6
 
 let GameStatus = [];
 let TurnNum = 0
-let Turn = "B";
+let Turn = "R";
 let Win = false;
 
 let winsound = new Audio("Assets/Party_Horn.mp3");
@@ -23,6 +23,8 @@ for (let i=0; i<ySize; i++) {
     }
     document.getElementById("boardtbody").appendChild(tr);
 }
+
+document.getElementById("whoseturn").style.color = "rgb(210, 0, 0)";
 
 // Place chip
 function PlaceChip(xpos, ypos) {
@@ -137,22 +139,22 @@ function PlaceChip(xpos, ypos) {
         //Visuals
 
         GameStatus[ypos][xpos] = Turn;
-        if (Turn == "B") {
-            document.getElementById("slot_" + xpos.toString() + "_" + ypos.toString()).style.backgroundColor = "rgb(55, 55, 55)";
+        if (Turn == "Y") {
+            document.getElementById("slot_" + xpos.toString() + "_" + ypos.toString()).style.backgroundColor = "rgb(242, 204, 96)";
             document.getElementById("whoseturn").innerHTML = "Red's Turn";
             document.getElementById("whoseturn").style.color = "rgb(210, 0, 0)";
         }
         else {
             document.getElementById("slot_" + xpos.toString() + "_" + ypos.toString()).style.backgroundColor = "rgb(210, 0, 0)";
-            document.getElementById("whoseturn").innerHTML = "Black's Turn";
-            document.getElementById("whoseturn").style.color = "rgb(55, 55, 55)";
+            document.getElementById("whoseturn").innerHTML = "Yellow's Turn";
+            document.getElementById("whoseturn").style.color = "rgb(242, 204, 96)";
         }
 
         if (CheckRow() || CheckColumn() || CheckDiagonalRightTop() || CheckDiagonalLeftTop()) {
             let colors;
-            if (Turn == "B") {
-                document.getElementById("whoseturn").innerHTML = "Black Wins!";
-                colors = ["#ffffff", "#525252"];
+            if (Turn == "Y") {
+                document.getElementById("whoseturn").innerHTML = "Yellow Wins!";
+                colors = ["#ffffff", "#ffee52"];
             }
             else {
                 document.getElementById("whoseturn").innerHTML = "Red Wins!";
@@ -163,7 +165,7 @@ function PlaceChip(xpos, ypos) {
 
             document.getElementById("replay").style.display = " block";
 
-            const end = Date.now() + 5 * 1000;
+            const end = Date.now() + 3 * 1000;
 
             winsound.play();
 
@@ -196,8 +198,8 @@ function PlaceChip(xpos, ypos) {
             document.getElementById("replay").style.display = " block";
         }
 
-        if (Turn == "B") {Turn = "R";}
-        else {Turn = "B";}
+        if (Turn == "Y") {Turn = "R";}
+        else {Turn = "Y";}
     }
 }
 
